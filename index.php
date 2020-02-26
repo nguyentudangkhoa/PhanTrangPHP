@@ -44,7 +44,7 @@ if(isset($_GET['trang'])){ //kiểm tra khi vào trang index mà chưa chọn tr
     $sql = "SELECT * FROM products";
     $result = $conn->query($sql);
     $num = mysqli_num_rows($result);//đếm tống trang
-    $tongSoTrang = $num/$tongSanPham;// tổng số trang có số sản phẩm
+    $tongSoTrang = ceil($num/$tongSanPham);// tổng số trang có số sản phẩm
     for($i=1; $i<=$tongSoTrang;$i++){
         echo "<a href='index.php?trang=$i'>Trang $i | </a>";
     }
